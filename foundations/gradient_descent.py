@@ -9,10 +9,7 @@ class Solution:
         x = init
 
         for i in range(iterations):
-            dx = 2 * x
-            a, x = x, x - learning_rate * dx
-
-            print(f"{x = }, {a = }")
+            x = x - learning_rate * x * 2
 
         return round(x, 5)
 
