@@ -9,8 +9,6 @@ class Solution:
         # y_pred: predicted probabilities
         # Hint: clip y_pred to [1e-7, 1 - 1e-7] to avoid log(0)
         # return round(your_answer, 4)
-        if np.array_equal(y_true, y_pred):
-            return 0.
 
         y_pred = np.clip(y_pred, 1e-7, 1 - 1e-7)
 
@@ -23,8 +21,6 @@ class Solution:
         # y_pred: predicted probabilities (shape: n_samples x n_classes)
         # Hint: clip y_pred to [1e-7, 1 - 1e-7] to avoid log(0)
         # return round(your_answer, 4)
-        if np.array_equal(y_true, y_pred):
-            return 0.
 
         y_pred = np.clip(y_pred, 1e-7, 1-1e-7)
         return np.round(np.sum((
