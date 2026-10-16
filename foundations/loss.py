@@ -12,9 +12,9 @@ class Solution:
 
         y_pred = np.clip(y_pred, 1e-7, 1 - 1e-7)
 
-        return np.round((np.sum( 
+        return np.round(-(np.mean( 
             y_true * np.log(y_pred) + (1 - y_true) * np.log (1 - y_pred) )
-            ) / -len(y_true), 4)
+            ) , 4)
 
     def categorical_cross_entropy(self, y_true: NDArray[np.float64], y_pred: NDArray[np.float64]) -> float:
         # y_true: one-hot encoded true labels (shape: n_samples x n_classes)
@@ -23,7 +23,5 @@ class Solution:
         # return round(your_answer, 4)
 
         y_pred = np.clip(y_pred, 1e-7, 1-1e-7)
-        return np.round(np.sum((
-            y_true * np.log(y_pred)
-        )) / -len(y_true), 4)
+        return np.round(-np.log((y_pred * y_true).sum(axis=1)).mean(), 4)
 
